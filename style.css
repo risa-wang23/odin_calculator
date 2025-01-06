@@ -1,12 +1,13 @@
 :root {
     /* button colors */
     --number-color: #aebdb9;
-    --operator-color: #72b3a6;
-    --clear-color: #e89edc;
-    --equals-color: #6d8782;
+    --operator-color: #84a39e;
+    --clear-color: #d6ae9c;
+    --equals-color: #798b88;
 
     /* display area */
-    --display-color: #c6cfcd;
+    --display-color: #323736;
+    --ac-color: #a888ac;
 }
 
 body {
@@ -21,21 +22,132 @@ body {
    height: 450px;
    width: 300px;
    margin: 100px auto;
+   border-radius: 20px 20px 20px 20px;
 }
 
 .display-area {
+    display: flex;
+    justify-content: baseline;
+    align-items: flex-end;
+    padding: 10px;
     height: 180px;
     background-color: var(--display-color);
+    border-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.ac {
+    width: 55px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--ac-color);
 }
 
 .button-area {
     height: 270px;
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;    
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .button {
-    padding: 10px;
-    background-color: #e89edc;
+    display: flex;
+    background-color: var(--number-color);
+    font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 
+    'DejaVu Sans', source-sans-pro, sans-serif;
+    font-weight: 100;
+    justify-content: center;
+    align-items: center;
+
 }
+
+/* column value */
+.btn_5,
+.btn_6,
+.btn_7,
+.btn_8 {
+    grid-row: 2 / 2;
+
+}
+
+.btn_9,
+.btn_10,
+.btn_11,
+.btn_12 {
+    grid-row: 3 / 3;
+
+}
+
+.btn_13,
+.btn_14,
+.btn_15,
+.btn_16 {
+    grid-row: 4 / 4;
+
+}
+
+.btn_17,
+.btn_18,
+.btn_19 {
+    grid-row: 5 / 5;
+
+}
+
+/* row-value */
+.btn_5,
+.btn_9,
+.btn_13,
+.btn_17 {
+    grid-column: 1 / 1;
+
+}
+
+.btn_6,
+.btn_10,
+.btn_14,
+.btn_18 {
+    grid-column: 2 / 2;
+
+}
+
+.btn_7,
+.btn_11,
+.btn_15 {
+    grid-column: 3 / 3;
+
+}
+
+.btn_8,
+.btn_12,
+.btn_16 {
+    grid-column: 4 / 4;
+
+}
+
+/* style buttons */
+.btn_1 {
+    background-color: var(--clear-color);
+}
+
+.btn_2,
+.btn_3,
+.btn_4,
+.btn_8,
+.btn_12,
+.btn_16 {
+    background-color: var(--operator-color);
+}
+
+
+.btn_19 {
+    grid-column: 3 / span 4;
+    border-bottom-right-radius: 20px;
+    background-color: var(--equals-color);
+}
+
+.btn_17 {
+    border-bottom-left-radius: 20px;
+}
+
+
