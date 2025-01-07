@@ -44,6 +44,16 @@ body {
     background-color: var(--ac-color);
 }
 
+#result {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: inherit;
+    margin-left: auto;
+    font-size: 20px;
+    color: white;
+}
+
 .button-area {
     height: 270px;
     display: grid;

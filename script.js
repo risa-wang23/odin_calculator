@@ -1,3 +1,4 @@
+// global variables
 let num1 = 0;
 let num2 = 0;
 let operater ='';
@@ -54,7 +55,7 @@ btn_mult.innerHTML = "x";
 let btn_minus = document.querySelector(".btn_12");
 btn_minus.innerHTML = "-";
 let btn_add = document.querySelector(".btn_16");
-btn_add.innerHTML = "2";
+btn_add.innerHTML = "+";
 let btn_eq = document.querySelector(".btn_19");
 btn_eq.innerHTML = "=";
 
@@ -82,10 +83,47 @@ function operate() {
     }
 }
 
+// btn_eq.addEventListener("click", operate)
+
+// btn_1.addEventListener("click", () => num1 = 1);
+// btn_2.addEventListener("clicl", () => num2 = 2);
+// btn_add.addEventListener("click", () => operater = '+');
+
+// console.log()
+let result = document.querySelector("#result");
+let resultValue = '';
+
+btn_1.addEventListener("click", populateScreenNum);
+function populateScreenNum() {
+    result.innerHTML += `${this.innerHTML}`;
+}
+
+function populateScreenOperator() {
+    result.innerHTML += ` ${this.innerHTML} `;
+}
+
+function populateScreenResult(){
+    result.innerHTML = '';
+    result.innerHTML = `${}`
+}
+
+btn_0.addEventListener("click", populateScreenNum);
+btn_2.addEventListener("click", populateScreenNum);
+btn_3.addEventListener("click", populateScreenNum);
+btn_4.addEventListener("click", populateScreenNum);
+btn_5.addEventListener("click", populateScreenNum);
+btn_6.addEventListener("click", populateScreenNum);
+btn_7.addEventListener("click", populateScreenNum);
+btn_8.addEventListener("click", populateScreenNum);
+btn_9.addEventListener("click", populateScreenNum);
+
+
+
+btn_add.addEventListener("click", populateScreenOperator);
+btn_minus.addEventListener("click", populateScreenOperator);
+btn_mod.addEventListener("click", populateScreenOperator);
+btn_div.addEventListener("click", populateScreenOperator);
+
+btn_neg.addEventListener("click", populateScreenOperator);
+
 btn_eq.addEventListener("click", operate)
-
-btn_1.addEventListener("click", () => num1 = 1);
-btn_2.addEventListener("clicl", () => num2 = 2);
-btn_add.addEventListener("click", () => operater = '+');
-
-console.log()
