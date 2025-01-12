@@ -92,7 +92,6 @@ function operate() {
     }
 }
 
-
 function populateScreenNum() {
     if (num1 == '') {
         result.innerHTML = '';
@@ -111,10 +110,18 @@ function populateScreenResult(){
 
 
 function toggleNum() {
-    currentNum =! currentNum;
-    if (currentNum) {
-        this.innerHTML = '';
-    }  
+    if (num1 != '' && num2 != '') {
+        operate();
+        num1 = resultValue;
+        num2 = '';
+        result.innerHTML = num1;
+        operator = this.innerHTML;
+    } else {
+        currentNum = !currentNum;
+        // if (currentNum) {
+        //     result.innerHTML = '';
+        // }  
+    }
 }
 
 function clearData() {
@@ -122,6 +129,10 @@ function clearData() {
     num2 = '';
     currentNum = true;
     operater = '';
+}
+
+function clearScreen() {
+    result.innerHTML = '';
 }
 
 btn_0.addEventListener("click", populateScreenNum);
@@ -166,27 +177,32 @@ btn_9.addEventListener("click", () => {
     currentNum ? num1 += 9 : num2 += 9;
 });
 
-btn_c.addEventListener("click", () => result.innerHTML = '');
+btn_c.addEventListener("click", clearScreen);
 btn_c.addEventListener("click", clearData);
 
+btn_add.addEventListener("click", toggleNum);
 btn_add.addEventListener("click", populateScreenOperator);
 btn_add.addEventListener("click", () => {operater = '+'});
+
+btn_minus.addEventListener("click", toggleNum);
 btn_minus.addEventListener("click", populateScreenOperator);
 btn_minus.addEventListener("click", () => {operater = '-'});
+
+btn_mod.addEventListener("click", toggleNum);
 btn_mod.addEventListener("click", populateScreenOperator);
 btn_mod.addEventListener("click", () => {operater = '%'});
+
+btn_mult.addEventListener("click", toggleNum);
+btn_mult.addEventListener("click", populateScreenOperator);
+btn_mult.addEventListener("click", () => {operater = '*'});
+
+btn_div.addEventListener("click", toggleNum);
 btn_div.addEventListener("click", populateScreenOperator);
 btn_div.addEventListener("click", () => {operater = '/'});
 
-btn_add.addEventListener("click", toggleNum);
-btn_minus.addEventListener("click", toggleNum);
-btn_mod.addEventListener("click", toggleNum);
-btn_div.addEventListener("click", toggleNum);
-btn_neg.addEventListener("click", toggleNum);
-
 btn_eq.addEventListener("click", operate);
 btn_eq.addEventListener("click", populateScreenResult);
-btn_eq.addEventListener("click", clearData);
+// btn_eq.addEventListener("click", clearData);
 
 
 // solution 1: display and number variable is different
